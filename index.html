@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex Panels 🐮</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="https://fav.farm/🐮" />
+</head>
+<body>
+  <style>
+    html {
+      box-sizing: border-box;
+      background: #ffc600;
+      font-family: 'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    .panels {
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .panel {
+      background: #6B0F9C;
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+      color: white;
+      text-align: center;
+      align-items: center;
+      /* Safari transitionend event.propertyName === flex */
+      /* Chrome + FF transitionend event.propertyName === flex-grow */
+      transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+      font-size: 20px;
+      background-size: cover;
+      background-position: center;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel1 { background-image:url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/71312fee-b844-45c7-971f-b0c5061c7014/d58h04p-d637e67e-5f86-4d0b-bd79-fb6f28243a92.jpg/v1/fill/w_900,h_1356,q_75,strp/the_farm_cow_by_twixmixy_d58h04p-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcxMzEyZmVlLWI4NDQtNDVjNy05NzFmLWIwYzUwNjFjNzAxNFwvZDU4aDA0cC1kNjM3ZTY3ZS01Zjg2LTRkMGItYmQ3OS1mYjZmMjgyNDNhOTIuanBnIiwiaGVpZ2h0IjoiPD0xMzU2Iiwid2lkdGgiOiI8PTkwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC83MTMxMmZlZS1iODQ0LTQ1YzctOTcxZi1iMGM1MDYxYzcwMTRcL3R3aXhtaXh5LTQucG5nIiwib3BhY2l0eSI6OTUsInByb3BvcnRpb25zIjowLjQ1LCJncmF2aXR5IjoiY2VudGVyIn19.NmgtkozhQQmyZlrrsDhjM3588jIXFiFPSQsdNSYhxpQ); }
+    .panel2 { background-image:url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/71312fee-b844-45c7-971f-b0c5061c7014/d58ox2k-86373d8c-b391-4a0d-bfd3-3c0cd3980faa.jpg/v1/fill/w_900,h_1356,q_75,strp/florida_sunrise_by_twixmixy_d58ox2k-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcxMzEyZmVlLWI4NDQtNDVjNy05NzFmLWIwYzUwNjFjNzAxNFwvZDU4b3gyay04NjM3M2Q4Yy1iMzkxLTRhMGQtYmZkMy0zYzBjZDM5ODBmYWEuanBnIiwiaGVpZ2h0IjoiPD0xMzU2Iiwid2lkdGgiOiI8PTkwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC83MTMxMmZlZS1iODQ0LTQ1YzctOTcxZi1iMGM1MDYxYzcwMTRcL3R3aXhtaXh5LTQucG5nIiwib3BhY2l0eSI6OTUsInByb3BvcnRpb25zIjowLjQ1LCJncmF2aXR5IjoiY2VudGVyIn19.qoGGlKOs3bqWni8c9q-E2JQeUnCOEfZhjD_Q0WqWxtk); }
+    .panel3 { background-image:url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/71312fee-b844-45c7-971f-b0c5061c7014/d58gpol-c4340a5d-c464-4d61-80d7-cadca0ccd6a2.jpg/v1/fill/w_900,h_1356,q_75,strp/color_on_stilts_by_twixmixy_d58gpol-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcxMzEyZmVlLWI4NDQtNDVjNy05NzFmLWIwYzUwNjFjNzAxNFwvZDU4Z3BvbC1jNDM0MGE1ZC1jNDY0LTRkNjEtODBkNy1jYWRjYTBjY2Q2YTIuanBnIiwiaGVpZ2h0IjoiPD0xMzU2Iiwid2lkdGgiOiI8PTkwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC83MTMxMmZlZS1iODQ0LTQ1YzctOTcxZi1iMGM1MDYxYzcwMTRcL3R3aXhtaXh5LTQucG5nIiwib3BhY2l0eSI6OTUsInByb3BvcnRpb25zIjowLjQ1LCJncmF2aXR5IjoiY2VudGVyIn19.vvQV_RjuCA64I94v0yaWPUo8kJvYTP2h2P74FqXW0_s); }
+    .panel4 { background-image:url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/71312fee-b844-45c7-971f-b0c5061c7014/d58gqjw-f64602ca-370a-47fd-9d2a-517cdb9a9ab7.jpg/v1/fill/w_900,h_598,q_75,strp/ohio_farm_by_twixmixy_d58gqjw-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcxMzEyZmVlLWI4NDQtNDVjNy05NzFmLWIwYzUwNjFjNzAxNFwvZDU4Z3Fqdy1mNjQ2MDJjYS0zNzBhLTQ3ZmQtOWQyYS01MTdjZGI5YTlhYjcuanBnIiwiaGVpZ2h0IjoiPD01OTgiLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLndhdGVybWFyayJdLCJ3bWsiOnsicGF0aCI6Ilwvd21cLzcxMzEyZmVlLWI4NDQtNDVjNy05NzFmLWIwYzUwNjFjNzAxNFwvdHdpeG1peHktNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.TIbMiF4kSdfoWUvFF9C4ofP90sdZAG19ND3DOWICY4s); }
+    .panel5 { background-image:url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/71312fee-b844-45c7-971f-b0c5061c7014/d58gn1m-1197af9a-e8af-4e62-9cee-84c2cfe9fdc8.jpg/v1/fill/w_900,h_1356,q_75,strp/cat_and_motorcycle_by_twixmixy_d58gn1m-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcxMzEyZmVlLWI4NDQtNDVjNy05NzFmLWIwYzUwNjFjNzAxNFwvZDU4Z24xbS0xMTk3YWY5YS1lOGFmLTRlNjItOWNlZS04NGMyY2ZlOWZkYzguanBnIiwiaGVpZ2h0IjoiPD0xMzU2Iiwid2lkdGgiOiI8PTkwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC83MTMxMmZlZS1iODQ0LTQ1YzctOTcxZi1iMGM1MDYxYzcwMTRcL3R3aXhtaXh5LTQucG5nIiwib3BhY2l0eSI6OTUsInByb3BvcnRpb25zIjowLjQ1LCJncmF2aXR5IjoiY2VudGVyIn19.75JsI0MKakw31EOG2M1Q7vZtblDlYd6uDVFNmhh_-7k); }
+
+    /* Flex Children */
+    .panel > * {
+      margin: 0;
+      width: 100%;
+      transition: transform 0.5s;
+      /* border: 1px solid red; */
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .panel > *:first-child { transform: translateY(-100%); }
+    .panel.open-active > *:first-child { transform: translateY(0); }
+    .panel > *:last-child { transform: translateY(100%); }
+    .panel.open-active > *:last-child { transform: translateY(0); }
+
+    .panel p {
+      text-transform: uppercase;
+      font-family: 'Amatic SC', cursive;
+      text-shadow: 0 0 4px #000000b8, 0 0 14px rgba(0, 0, 0, 0.45);
+      font-size: 2em;
+    }
+
+    .panel p:nth-child(2) {
+      font-size: 4em;
+    }
+
+    .panel.open {
+      font-size: 40px;
+      flex: 5;
+    }
+
+  </style>
+
+
+  <div class="panels">
+    <div class="panel panel1">
+      <p>Hey</p>
+      <p>Let's</p>
+      <p>Moo</p>
+    </div>
+    <div class="panel panel2">
+      <p>Just</p>
+      <p>Take</p>
+      <p>Pictures</p>
+    </div>
+    <div class="panel panel3">
+      <p>See</p>
+      <p>It</p>
+      <p>Now</p>
+    </div>
+    <div class="panel panel4">
+      <p>Feel</p>
+      <p>All</p>
+      <p>The Feels</p>
+    </div>
+    <div class="panel panel5">
+      <p>Live</p>
+      <p>In</p>
+      <p>Motion</p>
+    </div>
+  </div>
+
+  <script>
+    const panels = document.querySelectorAll('.panel');
+
+    function toggleOpen() {
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e) {
+      if(e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
+    }
+
+      panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+      panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+  </script>
+
+
+
+</body>
+</html>
